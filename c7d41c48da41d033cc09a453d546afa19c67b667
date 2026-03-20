@@ -1,0 +1,58 @@
+entrypoints/popup/style.css
+  689c533e14326b8e 1-5,7-11
+wxt.config.ts
+  689c533e14326b8e 6-16
+package.json
+  689c533e14326b8e 2-3,5,15-16
+entrypoints/background.ts
+  689c533e14326b8e 1-2,4-43
+public/icon.svg
+  689c533e14326b8e 1-33
+entrypoints/popup/App.tsx
+  689c533e14326b8e 1,4-5,7-12,14-60,62-70,72-81,83-90,92-137,140
+docs/firefox-extension-research.md
+  689c533e14326b8e 663-733
+entrypoints/popup/index.html
+  689c533e14326b8e 6
+entrypoints/content.ts
+  689c533e14326b8e 1-2,4-17
+.gitignore
+  689c533e14326b8e 16-17
+CLAUDE.md
+  b42e4087d9c1242c 1-44
+entrypoints/popup/App.css
+  689c533e14326b8e 1-6,9-13,15-162,164-253,256-264,267-270,273-277,280-281,283-307
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.15",
+  "base_commit_sha": "c7d41c48da41d033cc09a453d546afa19c67b667",
+  "prompts": {
+    "689c533e14326b8e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f287ca6-c373-4d54-a13d-bdc655a57261",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Muhammad Andhika Prasetya <andhikapraa@gmail.com>",
+      "messages": [],
+      "total_additions": 684,
+      "total_deletions": 184,
+      "accepted_lines": 615,
+      "overriden_lines": 0
+    },
+    "b42e4087d9c1242c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "05d574e1-8533-4467-81c5-3da436b20ddd",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Muhammad Andhika Prasetya <andhikapraa@gmail.com>",
+      "messages": [],
+      "total_additions": 44,
+      "total_deletions": 0,
+      "accepted_lines": 44,
+      "overriden_lines": 0
+    }
+  }
+}
