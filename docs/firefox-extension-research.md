@@ -660,3 +660,74 @@ If using build tools (Vite, TypeScript, etc.), you **must** provide original sou
 | `eval()` blocked | CSP forbids it in MV3; refactor code |
 | `runtime.onMessageExternal` fails | Not supported in Firefox; use content script + `window.postMessage()` |
 | Inline scripts blocked | CSP forbids inline JS in MV3; use external script files |
+| Blocking `webRequest` listener can't return a Promise | Cache state in variables, sync via `storage.onChanged` listener |
+
+---
+
+## 17. Signing & Distribution Workflow
+
+### Get AMO API Credentials
+1. Go to https://addons.mozilla.org/developers/addon/api/key/
+2. Save `JWT issuer` and `JWT secret` in a `.env` file (gitignored):
+   ```
+   WEB_EXT_API_KEY=user:XXXXXXX:XXX
+   WEB_EXT_API_SECRET=your_secret_here
+   ```
+
+### Sign via CLI (Unlisted / Self-Distribution)
+```bash
+# One-command build + sign:
+wxt build -b firefox && \
+  export $(cat .env | xargs) && \
+  npx web-ext sign \
+    --source-dir .output/firefox-mv2 \
+    --channel=unlisted \
+    --api-key=$WEB_EXT_API_KEY \
+    --api-secret=$WEB_EXT_API_SECRET
+```
+- `--channel=unlisted` = **automatic signing**, no review wait. Outputs a signed `.xpi`.
+- `--channel=listed` = submitted to AMO for public listing, requires human review.
+- Signed `.xpi` appears in `web-ext-artifacts/`.
+
+### package.json Scripts
+```json
+{
+  "sign:firefox": "wxt build -b firefox && export $(cat .env | xargs) && npx web-ext sign --source-dir .output/firefox-mv2 --channel=unlisted --api-key=$WEB_EXT_API_KEY --api-secret=$WEB_EXT_API_SECRET",
+  "install:zen": "/Applications/Zen.app/Contents/MacOS/zen web-ext-artifacts/*.xpi"
+}
+```
+
+### .gitignore Additions
+```
+.env
+web-ext-artifacts
+web-ext.config.ts
+```
+
+---
+
+## 18. Zen Browser Notes
+
+Zen is a Firefox-based browser. Extensions built for Firefox work in Zen with these caveats:
+
+### Dev Mode
+Set Zen's binary path in `web-ext.config.ts` (gitignored):
+```typescript
+import { defineWebExtConfig } from 'wxt';
+
+export default defineWebExtConfig({
+  binaries: {
+    firefox: '/Applications/Zen.app/Contents/MacOS/zen',
+  },
+});
+```
+Then `pnpm dev:firefox` opens Zen automatically.
+
+### Installing Signed .xpi
+**Drag-and-drop and "Install Add-on From File" do NOT work in Zen.** The install prompt silently fails to appear.
+
+**Working method** — open the `.xpi` via CLI:
+```bash
+/Applications/Zen.app/Contents/MacOS/zen /path/to/extension.xpi
+```
+This triggers the install prompt reliably.
