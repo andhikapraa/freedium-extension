@@ -1,0 +1,25 @@
+LICENSE
+  689c533e14326b8e 1-21
+README.md
+  689c533e14326b8e 1,3-63
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.15",
+  "base_commit_sha": "ab7fb5be6bb887504ec5f33a59e681055c9a1f7b",
+  "prompts": {
+    "689c533e14326b8e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1f287ca6-c373-4d54-a13d-bdc655a57261",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Muhammad Andhika Prasetya <andhikapraa@gmail.com>",
+      "messages": [],
+      "total_additions": 83,
+      "total_deletions": 2,
+      "accepted_lines": 83,
+      "overriden_lines": 0
+    }
+  }
+}
