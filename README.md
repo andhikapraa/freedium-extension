@@ -24,6 +24,8 @@ Download the latest `.xpi` from [Releases](../../releases) and install:
 **Firefox:**
 Open the `.xpi` file directly or go to `about:addons` → gear icon → "Install Add-on From File"
 
+Installed copies auto-update from [`updates.json`](updates.json).
+
 ### From source
 
 ```bash
@@ -51,6 +53,14 @@ pnpm sign:firefox     # Build + sign via AMO (requires .env with API keys)
    WEB_EXT_API_SECRET=your_secret_here
    ```
 3. Run `pnpm sign:firefox`
+
+### Releasing
+
+```bash
+pnpm release 1.0.3
+```
+
+Bumps the version, signs it, publishes the `.xpi` as a GitHub Release, and updates `updates.json` so installed copies update themselves.
 
 ## Built with
 

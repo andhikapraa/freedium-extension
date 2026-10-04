@@ -13,6 +13,7 @@
     "zip:firefox": "wxt zip -b firefox",
     "compile": "tsc --noEmit",
     "sign:firefox": "wxt build -b firefox && export $(cat .env | xargs) && npx web-ext sign --source-dir .output/firefox-mv2 --channel=unlisted --api-key=$WEB_EXT_API_KEY --api-secret=$WEB_EXT_API_SECRET",
+    "release": "bash scripts/release.sh",
     "install:zen": "/Applications/Zen.app/Contents/MacOS/zen web-ext-artifacts/*.xpi",
     "postinstall": "wxt prepare"
   },

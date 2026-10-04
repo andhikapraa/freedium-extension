@@ -11,6 +11,9 @@ export default defineConfig({
     browser_specific_settings: {
       gecko: {
         id: 'freedium@extension',
+        // Firefox/Zen poll this daily; `pnpm release <version>` keeps it current.
+        update_url:
+          'https://raw.githubusercontent.com/andhikapraa/freedium-extension/main/updates.json',
       },
     },
   },
