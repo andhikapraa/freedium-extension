@@ -14,6 +14,8 @@ export default defineConfig({
         // Firefox/Zen poll this daily; `pnpm release <version>` keeps it current.
         update_url:
           'https://raw.githubusercontent.com/andhikapraa/freedium-extension/main/updates.json',
+        // Settings stay in storage.local; nothing leaves the browser.
+        data_collection_permissions: { required: ['none'] },
       },
     },
   },

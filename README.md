@@ -29,7 +29,7 @@ Installed copies auto-update from [`updates.json`](updates.json).
 ### From source
 
 ```bash
-git clone https://github.com/user/freedium-extension.git
+git clone https://github.com/andhikapraa/freedium-extension.git
 cd freedium-extension
 pnpm install
 pnpm dev:firefox
