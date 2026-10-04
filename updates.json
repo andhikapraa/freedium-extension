@@ -1,0 +1,12 @@
+{
+  "addons": {
+    "freedium@extension": {
+      "updates": [
+        {
+          "version": "1.0.2",
+          "update_link": "https://github.com/andhikapraa/freedium-extension/releases/download/v1.0.2/freedium-1.0.2.xpi"
+        }
+      ]
+    }
+  }
+}

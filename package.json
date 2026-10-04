@@ -2,7 +2,7 @@
   "name": "freedium-extension",
   "description": "Redirect Medium articles to Freedium for free reading",
   "private": true,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "scripts": {
     "dev": "wxt",
